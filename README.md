@@ -36,6 +36,18 @@ Try to delete the acme.json file, create it again and give 600 permission:
 `touch acme.json`
 
 `chmod 600 acme.json`
+## Configure email for automated SSL generation
+Go to the file /traefik-configurations/traefik-data/traefik.yml and configure a valid email like this:
+```yml
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: thianlopezz@gmail.com
+      storage: acme.json
+      keyType: EC384
+      httpChallenge:
+        entryPoint: web
+```
 
 ## Run Docker compose
 
